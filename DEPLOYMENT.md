@@ -23,9 +23,10 @@ This project is configured for easy deployment to modern hosting platforms.
 4. Network Access:
    - Add IP: `0.0.0.0/0` (Allow from anywhere)
 5. Get connection string:
-   ```
-   mongodb+srv://username:password@cluster.mongodb.net/cognisphere?retryWrites=true&w=majority
-   ```
+   - Click "Connect" → "Connect your application"
+   - Copy the connection string
+   - Format: `mongodb+srv://USERNAME:PASSWORD@CLUSTER/cognisphere`
+   - Replace USERNAME and PASSWORD with your credentials
 
 ---
 
@@ -47,11 +48,11 @@ This project is configured for easy deployment to modern hosting platforms.
 ```env
 NODE_ENV=production
 PORT=10000
-MONGODB_URI=your_mongodb_atlas_connection_string
-JWT_SECRET=your_generated_secure_random_string
+MONGODB_URI=[paste your MongoDB Atlas connection string here]
+JWT_SECRET=[paste generated secret here]
 JWT_EXPIRES_IN=7d
-GROQ_API_KEY=your_groq_api_key
-FRONTEND_URL=https://your-app.vercel.app
+GROQ_API_KEY=[paste your Groq API key here]
+FRONTEND_URL=[paste your Vercel URL here]
 ```
 
 **Generate JWT Secret:**
@@ -61,7 +62,7 @@ node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
 
 ### ⏱️ First Deploy:
 - Takes 5-10 minutes
-- Backend URL: `https://cognisphere-backend.onrender.com`
+- Backend URL: `https://your-project-name.onrender.com`
 - **Save this URL** for frontend configuration
 
 ---
@@ -79,13 +80,13 @@ node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
 
 ### Environment Variable (Add in Vercel):
 ```env
-VITE_API_URL=https://cognisphere-backend.onrender.com
+VITE_API_URL=[paste your Render backend URL here]
 ```
-*(Use your actual Render backend URL)*
+*(Example: https://your-backend-name.onrender.com)*
 
 ### ⏱️ Deploy:
 - Takes 2-3 minutes
-- Frontend URL: `https://cognisphere.vercel.app`
+- Frontend URL: `https://your-app-name.vercel.app`
 
 ---
 
@@ -94,8 +95,9 @@ VITE_API_URL=https://cognisphere-backend.onrender.com
 ### Update Backend CORS:
 In Render dashboard, add/update environment variable:
 ```env
-FRONTEND_URL=https://your-app.vercel.app
+FRONTEND_URL=[paste your Vercel URL here]
 ```
+*(Example: https://your-app-name.vercel.app)*
 
 ### Redeploy Backend:
 - Render → Your Service → Manual Deploy
@@ -105,10 +107,8 @@ FRONTEND_URL=https://your-app.vercel.app
 ## ✅ Verify Deployment
 
 1. **Backend Health Check:**
-   ```
-   https://cognisphere-backend.onrender.com/
-   ```
-   Should return: `{"message":"CogniSphere API Server"}`
+   - Visit: `https://your-backend-name.onrender.com/`
+   - Should return: `{"message":"CogniSphere API Server"}`
 
 2. **Frontend:**
    - Visit your Vercel URL
