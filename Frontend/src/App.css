@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-bg: #0a0e27;
+  --secondary-bg: #141b34;
+  --accent-color: #4F46E5;
+  --accent-hover: #4338CA;
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  --border-color: #1e3a5f;
+  --success-color: #10B981;
+  --danger-color: #ff4757;
+  --warning-color: #ffa502;
+  
+  /* New modern colors */
+  --glass-bg: rgba(79, 70, 229, 0.08);
+  --glass-border: rgba(79, 70, 229, 0.2);
+  --shadow-light: rgba(79, 70, 229, 0.1);
+  --shadow-medium: rgba(79, 70, 229, 0.15);
+  --shadow-heavy: rgba(79, 70, 229, 0.25);
+  
+  /* Gradient colors */
+  --gradient-start: #0a0e27;
+  --gradient-mid: #1a237e;
+  --gradient-end: #004d66;
+  --accent-gradient: linear-gradient(135deg, #4F46E5 0%, #818CF8 100%);
+  --accent-gradient-hover: linear-gradient(135deg, #4338CA 0%, #6D28D9 100%);
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a237e 50%, #004d66 100%);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.app-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  transition: margin-left 0.3s ease;
+  margin-left: 320px;
+}
+
+.app-content.sidebar-closed {
+  margin-left: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .app-content {
+        margin-left: 0 !important;
+    }
+}
+  .app {
+    flex-direction: column;
+  }
+}
+
+/* Add subtle animation to the entire app */
+.app::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 229, 160, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(0, 184, 230, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}

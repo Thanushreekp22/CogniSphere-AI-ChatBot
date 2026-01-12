@@ -1,0 +1,151 @@
+.personality-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.08), rgba(129, 140, 248, 0.08));
+    border: 1px solid rgba(79, 70, 229, 0.2);
+    border-radius: 12px;
+    margin: 0 auto 20px;
+    backdrop-filter: blur(10px);
+    max-width: 500px;
+    position: relative;
+    z-index: 100000;
+}
+
+.personality-selector label {
+    font-size: 14px;
+    color: #4F46E5;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.personality-dropdown {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+}
+
+.personality-selected {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 220px;
+}
+
+.personality-selected:hover {
+    background: rgba(79, 70, 229, 0.12);
+    border-color: rgba(79, 70, 229, 0.3);
+}
+
+.personality-selected .icon {
+    color: #4F46E5;
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+}
+
+.personality-selected .name {
+    flex: 1;
+    color: #fff;
+    font-size: 14px;
+}
+
+.personality-selected .arrow {
+    color: #999;
+    font-size: 12px;
+    transition: transform 0.2s;
+}
+
+.personality-selected .arrow.open {
+    transform: rotate(180deg);
+}
+
+.personality-options {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 350px;
+    background: linear-gradient(145deg, rgba(30, 30, 50, 0.98), rgba(20, 20, 35, 0.98));
+    border: 1px solid rgba(79, 70, 229, 0.3);
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 99999;
+    max-height: 400px;
+    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 1px rgba(79, 70, 229, 0.5);
+    backdrop-filter: blur(20px);
+}
+
+.personality-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.personality-option:last-child {
+    border-bottom: none;
+}
+
+.personality-option:hover {
+    background: rgba(79, 70, 229, 0.1);
+}
+
+.personality-option.active {
+    background: rgba(79, 70, 229, 0.15);
+    border-left: 3px solid #4F46E5;
+}
+
+.personality-option .icon {
+    color: #4F46E5;
+    font-size: 18px;
+    width: 24px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.personality-option .details {
+    flex: 1;
+}
+
+.personality-option .details .name {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.personality-option .details .description {
+    color: #999;
+    font-size: 12px;
+}
+
+/* Scrollbar styling for personality options */
+.personality-options::-webkit-scrollbar {
+    width: 6px;
+}
+
+.personality-options::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.personality-options::-webkit-scrollbar-thumb {
+    background: rgba(79, 70, 229, 0.3);
+    border-radius: 3px;
+}
+
+.personality-options::-webkit-scrollbar-thumb:hover {
+    background: rgba(79, 70, 229, 0.5);
+}

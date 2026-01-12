@@ -1,0 +1,368 @@
+.memory-container {
+    background-color: var(--primary-bg);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-y: auto;
+}
+
+.memory-container::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(79, 70, 229, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(129, 140, 248, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.memory-manager {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.memory-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.memory-header h2 {
+    color: #fff;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.memory-header p {
+    color: #999;
+    font-size: 14px;
+}
+
+.memory-stats {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.memory-stat {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px 25px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.memory-stat-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #4caf50;
+    margin-bottom: 5px;
+}
+
+.memory-stat-label {
+    font-size: 12px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.memory-add-form {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+.memory-form-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.memory-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.memory-form-group label {
+    color: #ccc;
+    font-size: 13px;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.memory-form-group input,
+.memory-form-group select {
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    color: #fff;
+    font-size: 14px;
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.memory-form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 35px;
+}
+
+.memory-form-group select option {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 10px;
+}
+
+.memory-form-group input:focus,
+.memory-form-group select:focus {
+    outline: none;
+    border-color: rgba(79, 70, 229, 0.5);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.memory-importance {
+    display: flex;
+    gap: 5px;
+}
+
+.importance-star {
+    cursor: pointer;
+    font-size: 20px;
+    color: #555;
+    transition: color 0.2s;
+}
+
+.importance-star.filled {
+    color: #ffd700;
+}
+
+.importance-star:hover {
+    color: #ffd700;
+}
+
+.memory-form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.memory-btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.memory-btn-primary {
+    background: rgba(79, 70, 229, 0.15);
+    border: 1px solid rgba(79, 70, 229, 0.4);
+    color: #4F46E5;
+    flex: 1;
+}
+
+.memory-btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    background: rgba(79, 70, 229, 0.25);
+    border-color: rgba(79, 70, 229, 0.6);
+    box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);
+}
+
+.memory-btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.memory-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.memory-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.memory-list {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.memory-list-header {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.memory-items {
+    display: grid;
+    gap: 15px;
+}
+
+.memory-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    transition: all 0.2s;
+}
+
+.memory-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(5px);
+}
+
+.memory-item.category-personal {
+    border-left-color: #e91e63;
+}
+
+.memory-item.category-preference {
+    border-left-color: #9c27b0;
+}
+
+.memory-item.category-skill {
+    border-left-color: #2196f3;
+}
+
+.memory-item.category-goal {
+    border-left-color: #ff9800;
+}
+
+.memory-item.category-fact {
+    border-left-color: #4caf50;
+}
+
+.memory-item.category-other {
+    border-left-color: #607d8b;
+}
+
+.memory-item-content {
+    flex: 1;
+}
+
+.memory-item-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 5px;
+}
+
+.memory-item-key {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.memory-item-category {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ccc;
+}
+
+.memory-item-value {
+    color: #ddd;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.memory-item-meta {
+    display: flex;
+    gap: 15px;
+    font-size: 11px;
+    color: #888;
+}
+
+.memory-item-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.memory-action-btn {
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px;
+    transition: color 0.2s;
+}
+
+.memory-action-btn:hover {
+    color: #f44336;
+}
+
+.memory-empty {
+    text-align: center;
+    padding: 40px 20px;
+    color: #999;
+}
+
+.memory-empty-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+
+.memory-empty-text {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.memory-empty-hint {
+    font-size: 13px;
+    color: #666;
+}
+
+.memory-error,
+.memory-success {
+    padding: 12px 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 13px;
+}
+
+.memory-error {
+    background: rgba(244, 67, 54, 0.2);
+    color: #f44336;
+    border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+.memory-success {
+    background: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+@media (max-width: 768px) {
+    .memory-form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .memory-stats {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,116 @@
+.chats {
+    max-width: 800px;
+    overflow-y: auto;
+    padding: 2.5rem 3rem;
+    width: 100%;
+}
+
+h1 {
+    color: var(--text-primary);
+    font-size: 3rem;
+    margin: 4rem 0;
+    text-align: center;
+    font-weight: 800;
+    background: linear-gradient(135deg, #4F46E5, #818CF8, #A78BFA);
+    background-size: 200% 200%;
+    animation: gradientFlow 3s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(79, 70, 229, 0.3);
+    position: relative;
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.userDiv {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 0.9rem;
+}
+
+
+.gptDiv {
+    text-align: left;
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-primary);
+    padding: 24px 28px;
+    background: linear-gradient(145deg, var(--secondary-bg), rgba(26, 26, 26, 0.8));
+    border-radius: 20px 20px 20px 4px;
+    margin-bottom: 28px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    animation: slideInLeft 0.4s ease-out;
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.userMessage {
+    background: linear-gradient(135deg, #4F46E5, #6366F1);
+    padding: 18px 26px;
+    border-radius: 20px 20px 4px 20px;
+    margin-left: auto;
+    margin-right: 0;
+    margin-bottom: 24px;
+    max-width: 75%;
+    width: fit-content;
+    color: white;
+    font-size: 15px;
+    line-height: 1.7;
+    box-shadow: 0 6px 20px rgba(0, 212, 255, 0.3);
+    animation: slideInRight 0.4s ease-out;
+    position: relative;
+}
+
+.userMessage p {
+    margin: 0;
+}
+
+.chat-image {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    display: block;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.hljs {
+    border-radius: 12px !important;
+    background-color: #1e1e1e !important;
+    padding: 16px !important;
+    margin: 12px 0 !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+pre {
+    white-space: pre-wrap;
+}
