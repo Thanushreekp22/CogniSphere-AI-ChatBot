@@ -6,10 +6,13 @@ package-lock.json
 .env
 .env.local
 .env.production
+*.env
 
 # Build outputs
 Frontend/dist/
 Frontend/build/
+dist/
+build/
 
 # IDE
 .vscode/
@@ -24,6 +27,8 @@ Thumbs.db
 # Logs
 *.log
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # MongoDB data
 Backend/data/
@@ -33,3 +38,5 @@ coverage/
 
 # Misc
 .cache/
+.vercel
+.render
