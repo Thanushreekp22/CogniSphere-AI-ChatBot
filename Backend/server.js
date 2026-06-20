@@ -26,7 +26,8 @@ app.use(express.urlencoded({ limit: '10mb', extended: true }));
 const allowedOrigins = [
     'http://localhost:5173',
     'http://localhost:5174',
-    process.env.FRONTEND_URL, // Production frontend URL
+    'https://cogni-sphere-ai-chat-bot.vercel.app',
+    process.env.FRONTEND_URL, // Optional production frontend URL from env
 ].filter(Boolean); // Remove undefined values
 
 const corsOptions = {
